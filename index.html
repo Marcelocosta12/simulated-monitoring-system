@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Monitoring Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #101020;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            border-bottom: 2px solid #00ff00;
+        }
+        .content {
+            padding: 20px;
+        }
+        .monitoring-section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+        .data {
+            background-color: #101020;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            margin-bottom: 10px;
+        }
+        .data span {
+            color: #fff;
+        }
+        .message {
+            color: #fff;
+        }
+        .map {
+            width: 100%;
+            height: 300px;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            border: 1px solid #00ff00;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">SIMULATED MONITORING SYSTEM</div>
+    <div class="content">
+
+        <!-- Phone Monitoring -->
+        <div class="monitoring-section">
+            <div class="section-title">Telemóvel</div>
+            <div class="data">Número: <span id="phone-number">+351 912 345 678</span></div>
+            <div class="data">Última chamada: <span id="last-call">Maria - 10 minutos atrás</span></div>
+            <div class="data">Mensagens recentes:</div>
+            <div class="data message">Maria: "Onde estás?"</div>
+            <div class="data message">João: "Chego em 5 minutos."</div>
+        </div>
+
+        <!-- Instagram Monitoring -->
+        <div class="monitoring-section">
+            <div class="section-title">Instagram</div>
+            <div class="data">Utilizador: <span id="instagram-username">@utilizador_exemplo</span></div>
+            <div class="data">Última publicação: "A pôr o sol no Porto 🌅"</div>
+            <div class="data">Mensagens diretas:</div>
+            <div class="data message">Ana: "Adorei o post!"</div>
+            <div class="data message">Lucas: "Queres sair amanhã?"</div>
+        </div>
+
+        <!-- TikTok Monitoring -->
+        <div class="monitoring-section">
+            <div class="section-title">TikTok</div>
+            <div class="data">Utilizador: <span id="tiktok-username">@tiktok_star</span></div>
+            <div class="data">Último vídeo: "Desafio de dança viral 💃"</div>
+            <div class="data">Comentários recentes:</div>
+            <div class="data message">@user123: "Incrível!"</div>
+            <div class="data message">@follower456: "Como fizeste isto?"</div>
+        </div>
+
+        <!-- Geolocation Monitoring -->
+        <div class="monitoring-section">
+            <div class="section-title">Geolocalização</div>
+            <div class="data">Número monitorizado: <span id="geo-phone-number">+351 912 345 678</span></div>
+            <div class="data">Última localização: <span id="geo-location">Lisboa, Portugal</span></div>
+            <div class="map" id="map">Mapa de localização simulado</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Este script apenas simula uma atualização dos campos de geolocalização (fictício)
+        setTimeout(() => {
+            document.getElementById('geo-location').textContent = 'Porto, Portugal';
+        }, 5000); // Simula uma mudança de localização após 5 segundos
+    </script>
+</body>
+</html>
