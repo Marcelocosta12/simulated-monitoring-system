@@ -96,10 +96,10 @@
         <div class="monitoring-section">
             <div class="section-title">Telemóvel</div>
             <div class="data">Número: <span id="phone-number">+351 912 345 678</span></div>
-            <div class="data">Última chamada: <span id="last-call">Maria - 10 minutos atrás</span></div>
+            <div class="data">Última chamada: <span id="last-call">Maria - <span id="phone-timestamp">10 minutos atrás</span></span></div>
             <div class="data">Mensagens recentes:</div>
-            <div class="data message">Maria: "Onde estás?"</div>
-            <div class="data message">João: "Chego em 5 minutos."</div>
+            <div class="data message">Maria: "Onde estás?" <span id="msg-time-1">10:23</span></div>
+            <div class="data message">João: "Chego em 5 minutos." <span id="msg-time-2">10:30</span></div>
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
@@ -109,10 +109,10 @@
         <div class="monitoring-section">
             <div class="section-title">Instagram</div>
             <div class="data">Utilizador: <span id="instagram-username">@utilizador_exemplo</span></div>
-            <div class="data">Última publicação: "A pôr o sol no Porto 🌅"</div>
+            <div class="data">Última publicação: "A pôr o sol no Porto 🌅" <span id="insta-timestamp">10:15</span></div>
             <div class="data">Mensagens diretas:</div>
-            <div class="data message">Ana: "Adorei o post!"</div>
-            <div class="data message">Lucas: "Queres sair amanhã?"</div>
+            <div class="data message">Ana: "Adorei o post!" <span id="insta-msg-time-1">10:25</span></div>
+            <div class="data message">Lucas: "Queres sair amanhã?" <span id="insta-msg-time-2">10:28</span></div>
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
@@ -122,10 +122,10 @@
         <div class="monitoring-section">
             <div class="section-title">TikTok</div>
             <div class="data">Utilizador: <span id="tiktok-username">@tiktok_star</span></div>
-            <div class="data">Último vídeo: "Desafio de dança viral 💃"</div>
+            <div class="data">Último vídeo: "Desafio de dança viral 💃" <span id="tiktok-timestamp">10:10</span></div>
             <div class="data">Comentários recentes:</div>
-            <div class="data message">@user123: "Incrível!"</div>
-            <div class="data message">@follower456: "Como fizeste isto?"</div>
+            <div class="data message">@user123: "Incrível!" <span id="tiktok-msg-time-1">10:22</span></div>
+            <div class="data message">@follower456: "Como fizeste isto?" <span id="tiktok-msg-time-2">10:29</span></div>
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
@@ -135,10 +135,10 @@
         <div class="monitoring-section">
             <div class="section-title">Facebook</div>
             <div class="data">Utilizador: <span id="facebook-username">@exemplo_facebook</span></div>
-            <div class="data">Última publicação: "Passeio incrível pela serra hoje! 🏞️"</div>
+            <div class="data">Última publicação: "Passeio incrível pela serra hoje! 🏞️" <span id="facebook-timestamp">10:05</span></div>
             <div class="data">Comentários recentes:</div>
-            <div class="data message">Carla: "Lindo lugar!"</div>
-            <div class="data message">Miguel: "Onde é isso?"</div>
+            <div class="data message">Carla: "Lindo lugar!" <span id="facebook-msg-time-1">10:20</span></div>
+            <div class="data message">Miguel: "Onde é isso?" <span id="facebook-msg-time-2">10:27</span></div>
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
@@ -155,6 +155,18 @@
     </div>
 
     <script>
+        // Atualiza os horários dinamicamente
+        function updateTimestamps() {
+            const now = new Date();
+            const formattedTime = now.toTimeString().split(' ')[0].slice(0, 5);
+
+            document.querySelectorAll('[id$="timestamp"]').forEach(el => el.textContent = formattedTime);
+            document.querySelectorAll('[id$="msg-time-1"]').forEach(el => el.textContent = formattedTime);
+            document.querySelectorAll('[id$="msg-time-2"]').forEach(el => el.textContent = formattedTime);
+        }
+
+        setInterval(updateTimestamps, 60000); // Atualiza os horários a cada minuto
+
         // Simula uma atualização de localização fictícia
         setTimeout(() => {
             document.getElementById('geo-location').textContent = 'Porto, Portugal';
